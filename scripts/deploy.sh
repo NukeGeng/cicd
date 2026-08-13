@@ -2,12 +2,16 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../my-react-app" && pwd)"
 BUILD_DIR="$PROJECT_DIR/dist"
 DEPLOY_DIR="$(cd "$SCRIPT_DIR/.." && pwd)/.ci-deploy/ReactApp"
 BACKUP_DIR="$(cd "$SCRIPT_DIR/.." && pwd)/.ci-deploy/Backups/$(date +%Y-%m-%d_%H%M%S)"
 
 echo "Installing dependencies..."
+cd "$REPO_DIR"
+git reset --hard
+git pull origin main
 cd "$PROJECT_DIR"
 npm install --no-audit --no-fund
 

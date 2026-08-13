@@ -9,6 +9,8 @@ set "BACKUP_DIR=D:\WebServer\Backups\%date:~-4%-%date:~3,2%-%date:~0,2%_%time:~0
 
 echo Installing dependencies...
 cd /d "%PROJECT_DIR%"
+git reset --hard
+git pull origin main
 call npm install
 
 echo Building React project...
