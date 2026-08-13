@@ -1,0 +1,6 @@
+.DS_Store
+my-react-app-cra-incomplete/
+my-react-app/node_modules/
+my-react-app/dist/
+.ci-deploy/
+Bai TH 10.pdf
